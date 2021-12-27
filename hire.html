@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Hire Employees</title>
+    <style>
+     *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        text-align: center;
+    }
+
+    body h1{
+     text-align: center;
+     margin: 10px;
+     font-size: 3rem;
+    }
+
+    .hire{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        grid-gap: 20px;
+    }
+
+       div{
+           background-color: black;
+           border: 2px solid white;
+           border-radius: 10px;
+           text-align: center;
+           padding: 10px;
+       }
+
+       div h1,p{
+           color: white;
+           margin-bottom: 10px;
+       }
+
+       div h1{
+           font-size: 2rem;
+       }
+
+       div p{
+           font-size: 1.7rem;
+       }
+
+       div img{
+           width: 60px;
+           height: 60px;
+           border-radius: 50%;
+       }
+
+       button{
+           border:2px solid rgb(28, 68, 121);
+           background-color: transparent;
+           color: rgb(28, 68, 121);
+           padding: 3px 20px;
+           font-size: 1.6rem;
+           border-radius: 10px;
+           cursor: pointer;
+           margin: 10px auto;
+       }
+
+    </style>
+</head>
+<body>
+    <h1>Employees List</h1>
+    <section class="hire">
+    </section>
+    <a href="hired.html"><button>Hired Employees</button></a>
+    <script>
+        let hire=document.querySelector(".hire");
+        fetch("https://randomuser.me/api//?results=8").then(function(params) {
+         return params.json();
+        }).then(function(params) {
+            console.log(params.results);
+         let details=params.results.map(function(params) {
+             return `<div>
+            <img src="${params.picture.medium}" alt="">
+            <h1>${params.name.title} ${params.name.first} ${params.name.last}</h1>
+            <p>${params.email}</p>
+            <p>${params.cell}</p>
+            <p>${params.location.city}</p>
+            <button class="hirebtn" onclick="hireemp(this)">Hire</button>
+        </div>`
+         }).join(" ");
+           hire.insertAdjacentHTML("afterbegin",details);
+        })
+
+
+         let hirepeople=[];
+         function hireemp(params) {
+            hirepeople.push(params.parentElement.outerHTML)
+            params.parentElement.style.display="none";
+            alert("successfully hired");
+            console.log(hirepeople);
+            localStorage.setItem("emp",JSON.stringify([hirepeople]));
+         }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>login/signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="formsection">
+            <div class="left">
+            <small>Welcome back</small>
+            <h1>Login to your account</h1>
+            <form action="">
+                <label for="mail">Email</label>
+                <input type="email" name="" id="mail" required>
+
+                <label for="password">Password</label>
+                <input type="password" name="" id="password">
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="forgot">
+                        <input type="radio" name="" id="radio">
+                        <label for="radio">Remember me</label>
+                    </div>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button class="submit" type="button" onclick="validate()">Login now</button>
+                <button>Or sign-in with google</button>
+            </form>
+
+            <small>Dont have an account?<a href="#">Join free today</a></small>
+        </div>
+
+
+    </section>
+
+    <div class="signupdiv">
+
+        <h1 class="h2">Sign up</h1>
+            <div>
+                <input type="text" name="" id="rgname"placeholder="Enter your full name"><br>
+                <small></small>
+            </div>
+
+
+            <div >
+                <input type="email" name="" id="rgmail"placeholder="Enter your Email-Address"><br>
+                <small></small>
+            </div>
+           
+                <div>
+                    <input type="password" name="" id="rgpass"placeholder="password">
+                    <small></small>
+                </div>
+
+                <div>
+                    <input type="password" name="" id="rgcpass"placeholder="Confirm Password">
+                    <small></small>
+                </div>
+
+                <div>
+                    <input type="text"placeholder="Enter your address"id="rgaddress">
+                    <small></small>
+                </div>
+
+                <button onclick="signup()">Register</button>
+            
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

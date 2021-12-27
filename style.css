@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61fbe1d2-984b-45c7-b49a-9b9717d41abc/d7a56l5-3ee1faa3-6358-40bd-bb5a-9ac27112a73d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi82MWZiZTFkMi05ODRiLTQ1YzctYjQ5YS05Yjk3MTdkNDFhYmMvZDdhNTZsNS0zZWUxZmFhMy02MzU4LTQwYmQtYmI1YS05YWMyNzExMmE3M2QuanBnIn1dXX0.zL70G3rqMQFngAxW97ifo5yf0dpdhcS4ilwOlDecHXk");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.formsection{
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    margin:20px auto;
+}
+.formsection form label{
+   display: block;
+   margin-bottom: 5px;
+}
+
+form input{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+form .forgot{
+    display: flex;
+    align-items: center;
+}
+
+form button{
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+form button{
+    background-color: rgb(12, 12, 12);
+    color: white;
+    border-radius:5px;
+    border: none;
+}
+
+form .submit{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+
+
+.signupdiv{
+    border-radius: 10px;
+    margin: 20px;
+    width: 400px;
+    background-color: white;
+    position: relative;
+    border: 1px solid rgb(160,160,160);
+    border-radius: 10px;
+    padding: 10px;
+    margin:20px auto;
+}
+
+
+.signupdiv input{
+    width: 100%;
+   padding: 5px;
+   margin: 10px 0px;
+   font-size: 15px;
+   outline: none;
+}
+
+.signupdiv input:focus{
+    border-bottom: 1px solid black;
+}
+
+.signupdiv button{
+    padding: 5px 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: rgb(131, 131, 131);
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+
+small{
+    color: red;
+    display: none;
+    font-size: 14px;
+   
+}
+
+small.showerr{
+    display: block;
+}
+
+
+

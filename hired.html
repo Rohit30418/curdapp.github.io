@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Hired Employees</title>
+    <style>
+        
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        text-align: center;
+    }
+
+    body h1{
+     text-align: center;
+     margin: 10px;
+     font-size: 3rem;
+    }
+
+    .hire{
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+       div{
+           background-color: black;
+           border: 2px solid white;
+           border-radius: 10px;
+           text-align: center;
+           padding: 10px;
+           position: relative;
+           margin: auto;
+       }
+
+       div h1,p{
+           color: white;
+           margin-bottom: 10px;
+       }
+
+       div h1{
+           font-size: 2rem;
+       }
+
+       div p{
+           font-size: 1.7rem;
+       }
+
+       div img{
+           width: 60px;
+           height: 60px;
+           border-radius: 50%;
+       }
+
+       button{
+           border:2px solid rgb(28, 68, 121);
+           background-color: transparent;
+           color: rgb(28, 68, 121);
+           padding: 3px 20px;
+           font-size: 1.6rem;
+           border-radius: 10px;
+           cursor: pointer;
+           margin: 10px auto;
+       }
+
+
+     .hire  i{
+           background-color: rgb(255, 0, 0);
+           color: white;
+           width: 20px;
+           height: 20px;
+           border-radius: 50%;
+           padding: 2px;
+           font-size: 16px;
+           display: grid;
+           place-items: center;
+           position: absolute;
+           right: 10px;
+           top:10px;
+       }
+
+       .add{
+           background-color: black;
+           max-width: 300px;
+           margin:20px auto;
+           border-radius: 10px;
+           cursor: pointer;
+       }
+
+       .add i{
+           color: white;
+           font-size: 4rem;
+           cursor: pointer;
+       }
+
+       .add p{
+           font-size: 2rem;
+       }
+
+       .modal{
+           background-color: transparent;
+       }
+       .modal button{
+           font-size: 16px;
+       }
+      .modal-content div{
+          width: 100%;
+      }
+       form input{
+           padding: 5px;
+           margin: 10px auto;
+           font-size: 16px;
+
+       }
+
+       form input::placeholder{
+           font-size: 16px;
+       }
+    </style>
+</head>
+<body>
+    <h1> Hired Employees</h1>
+    <section class="hire">
+    </section>
+    <section class="add"data-toggle="modal" data-target="#exampleModalCenter">
+        <i class="fa fa-plus"></i>
+        <p>Add new custom employee</p>
+    </section>
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title" id="exampleModalLongTitle">Add Employee</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="#" class="form-group">
+           <input type="text" name="" id="" class="form-control" placeholder="Full Name">
+           <input type="email" name="" id="" class="form-control" placeholder="Email">
+           <input type="number" name="" id="" minlength="10" class="form-control" placeholder="Phone">
+           <button class="btn-outline-success">Add Employee</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script>
+        let hire=document.querySelector(".hire");
+        let gtdata=JSON.parse(localStorage.getItem("emp"));
+        hire.innerHTML=gtdata;
+        let hirebtn=document.querySelectorAll(".hirebtn");
+        hirebtn.forEach(function(params) {
+        params.textContent="Edit Profile";
+        })
+        let div=hire.querySelectorAll("div");
+        div.forEach(function(params) {
+            let i=document.createElement("i");
+            i.setAttribute("class","fas fa-times");
+            params.appendChild(i)
+        })
+
+        let fatime=document.querySelectorAll(".fa-times")
+        fatime.forEach(function name(params) {
+            params.addEventListener("click",function(e) {
+               e.currentTarget.parentElement.style.display="none";
+               confirm("are you sure to remove");
+            })
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

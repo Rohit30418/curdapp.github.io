@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61fbe1d2-984b-45c7-b49a-9b9717d41abc/d7a56l5-3ee1faa3-6358-40bd-bb5a-9ac27112a73d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi82MWZiZTFkMi05ODRiLTQ1YzctYjQ5YS05Yjk3MTdkNDFhYmMvZDdhNTZsNS0zZWUxZmFhMy02MzU4LTQwYmQtYmI1YS05YWMyNzExMmE3M2QuanBnIn1dXX0.zL70G3rqMQFngAxW97ifo5yf0dpdhcS4ilwOlDecHXk");
+   background-color: #181818;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -24,6 +24,7 @@ body{
     padding: 10px;
     border-radius: 10px;
     margin:20px auto;
+    box-shadow:inset -2px -2px 5px  rgba(255, 255, 255, 0.9), 2px 2px 5px inset rgba(0, 0, 0, 0.9);
 }
 .formsection form label{
    display: block;
@@ -73,6 +74,7 @@ form .submit{
     border-radius: 10px;
     padding: 10px;
     margin:20px auto;
+    box-shadow:inset -2px -2px 5px  rgba(255, 255, 255, 0.9), 2px 2px 5px inset rgba(0, 0, 0, 0.9);
 }
 
 

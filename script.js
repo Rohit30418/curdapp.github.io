@@ -16,9 +16,7 @@ function seterror(iptype,msg) {
     let piptype=iptype.parentElement;
     let small=piptype.querySelector("small");
     small.innerHTML=msg;
-    small.classList.add("showerr")
-    
-
+    small.classList.add("showerr");
 }
    
 

@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Hired Employees</title>
     <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
         
     html{
         font-size: 62.5%;
+        overflow-x: hidden;
     }
 
     body{
         text-align: center;
     }
+
+
 
     body h1{
      text-align: center;
@@ -24,19 +32,21 @@
     }
 
     .hire{
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
+     display: flex;
+     justify-content: start;
+     flex-wrap: wrap;
     }
 
-       div{
+      .hire div{
            background-color: black;
            border: 2px solid white;
            border-radius: 10px;
            text-align: center;
            padding: 10px;
            position: relative;
-           margin: auto;
+           margin: 10px;
+           width: 100%;
+           max-width: 300px;
        }
 
        div h1,p{
@@ -115,17 +125,60 @@
        form input{
            padding: 5px;
            margin: 10px auto;
-           font-size: 16px;
+           font-size: 16px !important;
+       }
 
+      .modal textarea{
+        padding: 5px;
+        margin: 10px auto;
+        font-size: 16px;
        }
 
        form input::placeholder{
            font-size: 16px;
        }
+
+       .modal-dialog{
+           background-color: transparent !important;
+           border: none;
+       }
+
+       h2{
+           background-color: rgb(23, 0, 42);
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           outline: none;
+           margin: auto;
+           border: 1px solid white;
+       }
+
+       .fa-sign-out-alt{
+           font-size: 16px;
+           display: grid;
+           place-items: end;
+           margin-right: 20px;
+           cursor: pointer;
+       }
+
+       small{
+           color: red;
+           font-size: 14px;
+          
+       }
+
+       @media(max-width:965px){
+        .hire div{
+            margin:10px auto;
+        }
+       }
+
+     
     </style>
 </head>
 <body>
-    <h1> Hired Employees</h1>
+    <h1 class="bg-danger py-2 text-white"> Hired Employees</h1>
+   <small>*functionality of this page will reset when you refresh your page</small> <i class="fas fa-sign-out-alt" onclick="logout()">Log out</i>
     <section class="hire">
     </section>
     <section class="add"data-toggle="modal" data-target="#exampleModalCenter">
@@ -135,24 +188,51 @@
 
 
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  data-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered bg-danger" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-primary">
           <p class="modal-title" id="exampleModalLongTitle">Add Employee</p>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-dark">
           <form action="#" class="form-group">
-           <input type="text" name="" id="" class="form-control" placeholder="Full Name">
-           <input type="email" name="" id="" class="form-control" placeholder="Email">
-           <input type="number" name="" id="" minlength="10" class="form-control" placeholder="Phone">
-           <button class="btn-outline-success">Add Employee</button>
+           <input minlength="3" type="text" name="" id="emname" class="form-control" placeholder="Full Name">
+           <input type="email" name="" id="emmail" class="form-control" placeholder="Email">
+           <input type="number" name="" id="emnum" minlength="10" class="form-control" placeholder="Phone">
+           <textarea placeholder="enter your address..." name="" id="emaddress" cols="30" rows="5" class="form-control"></textarea>
+           <button type="button" class="btn-outline-success" onclick="addemployee()">Add Employee</button>
+           <button type="reset" class="btn-outline-danger">Reset</button>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="modal-footer bg-primary">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered bg-danger" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-success">
+          <p class="modal-title" id="exampleModalLongTitle">Edit Employee data</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark">
+          <form action="#" class="form-group">
+           <input minlength="3" type="text" name="" id="editname" class="form-control" placeholder="Full Name">
+           <input type="email" name="" id="editmail" class="form-control" placeholder="Email">
+           <input type="number" name="" id="editnum" minlength="10" class="form-control" placeholder="Phone">
+           <textarea placeholder="enter your address..." name="" id="editaddress" cols="30" rows="5" class="form-control"></textarea>
+           <button type="button" class="btn-outline-success" onclick="editemployee()">Save</button>
+          </form>
+        </div>
+        <div class="modal-footer bg-success">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -165,21 +245,108 @@
         let hirebtn=document.querySelectorAll(".hirebtn");
         hirebtn.forEach(function(params) {
         params.textContent="Edit Profile";
+        params.setAttribute("data-toggle","modal");
+        params.setAttribute("data-target","#editmodal");
         })
         let div=hire.querySelectorAll("div");
         div.forEach(function(params) {
             let i=document.createElement("i");
             i.setAttribute("class","fas fa-times");
-            params.appendChild(i)
+            params.appendChild(i);
         })
 
         let fatime=document.querySelectorAll(".fa-times")
         fatime.forEach(function name(params) {
             params.addEventListener("click",function(e) {
-               e.currentTarget.parentElement.style.display="none";
-               confirm("are you sure to remove");
+               if (confirm("are you sure want to remove")==true) {
+                e.currentTarget.parentElement.style.display="none";
+               }else{
+                e.currentTarget.parentElement.style.display="block";
+               }
+               
             })
         })
+
+        let emname=document.getElementById("emname");
+        let emmail=document.getElementById("emmail");
+        let emnum=document.getElementById("emnum");
+        let emaddress=document.getElementById("emaddress");
+        let testval=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        function addemployee() {
+           if (emname.value=="") {
+               alert("name can't be blank");
+               emname.style.border="1px solid red";
+           }else{
+               emname.style.border="1px solid green";
+           }
+
+           if (!testval.test(emmail.value)) {
+               alert("not a valid mail");
+               emmail.style.border="1px solid red";
+           }else{
+            emmail.style.border="1px solid green";
+           }
+
+           newele();
+        }
+
+        function newele() {
+            if (emname.style.border=="1px solid green"&&emmail.style.border=="1px solid green") {
+                let ele=`<div>
+            <h2></h2>
+            <h1>${emname.value}</h1>
+            <p>${emmail.value}</p>
+            <p>${emnum.value}</p>
+            <p>${emaddress.value}</p>
+            <i class="fas fa-times" onclick="cutitm(this)"></i>
+            <button class="hirebtn" onclick="hireemp(this)" data-toggle="modal" data-target="#editmodal">Edit Profile</button>
+        </div>`
+
+        hire.insertAdjacentHTML("beforeend",ele);
+        alert("congratulation you have successfully added new employee plese click on close button")
+            }
+        }
+
+        function cutitm(itm) {
+               if (confirm("are you sure want to remove")==true) {
+                itm.parentElement.style.display="none";
+               }else{
+                itm.parentElement.style.display="block";
+               }
+        }
+
+        let editname=document.getElementById("editname");
+        let editmail=document.getElementById("editmail");
+        let editnum=document.getElementById("editnum");
+        let editaddress=document.getElementById("editaddress");
+
+        let cngdata={
+
+        }
+
+        function hireemp(itm) {
+            cngdata.x=itm.parentElement.children;
+            console.log(cngdata.x);
+            
+        }
+
+        function editemployee(params) {
+            if(editname.value!=""&&editmail.value!=""&&editnum.value!=""&&editaddress.value!=""){
+           cngdata.x[1].innerHTML=editname.value; 
+           cngdata.x[2].innerHTML=editmail.value; 
+           cngdata.x[3].innerHTML=editnum.value;
+           cngdata.x[4].innerHTML=editaddress.value;  
+           alert("successfully save");
+            }else{
+                alert("plese fill details");
+            }
+        }
+
+        function logout() {
+            if (confirm("are you sure want to logout?")==true) {
+                window.location.href="index.html";
+            }
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

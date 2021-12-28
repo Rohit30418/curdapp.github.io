@@ -74,7 +74,7 @@
     </style>
 </head>
 <body>
-    <h1>Employees List</h1>
+    <h1 class="bg-danger text-white py-2">Employees List</h1>
     <section class="hire">
     </section>
     <a href="hired.html"><button>Hired Employees</button></a>
@@ -93,7 +93,7 @@
             <p>${params.location.city}</p>
             <button class="hirebtn" onclick="hireemp(this)">Hire</button>
         </div>`
-         }).join(" ");
+         }).join("");
            hire.insertAdjacentHTML("afterbegin",details);
         })
 

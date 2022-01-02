@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Hired Employees</title>
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Bakbak+One&family=Courgette&family=DM+Serif+Display&family=Libre+Baskerville:wght@700&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@200&family=Outfit:wght@200;400&family=PT+Serif:wght@700&family=Playfair+Display+SC&family=Roboto+Slab:wght@400;500&family=Shippori+Antique+B1&family=Yanone+Kaffeesatz:wght@300&family=Yellowtail&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Bakbak+One&family=Courgette&family=DM+Serif+Display&family=Libre+Baskerville:wght@700&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@200&family=Outfit:wght@200;400&family=PT+Serif:wght@700&family=Playfair+Display+SC&family=Roboto+Slab:wght@400;500&family=Shippori+Antique+B1&family=Ubuntu+Mono&family=Yanone+Kaffeesatz:wght@300&family=Yellowtail&display=swap');
         *{
     padding: 0;
     margin: 0;
@@ -17,10 +20,17 @@
     html{
         font-size: 62.5%;
         overflow-x: hidden;
+        font-family: 'Ubuntu Mono', monospace;
     }
 
     body{
         text-align: center;
+        background-image:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url("https://th.bing.com/th/id/R.afb283121e0140394106154110373424?rik=3EClL54%2bo0yEgw&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-10%2fVector-Line-Background-Wallpapers-29369.jpg&ehk=Y1%2fXDS84SUxzG5o79ZLetpy%2bhKB1adbE2NtvcpwQEGI%3d&risl=&pid=ImgRaw&r=0");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+
     }
 
 
@@ -38,15 +48,16 @@
     }
 
       .hire div{
-           background-color: black;
-           border: 2px solid white;
-           border-radius: 10px;
+           background-position: center;
+           background-size: cover;
+           background-repeat: no-repeat;
            text-align: center;
            padding: 10px;
            position: relative;
            margin: 10px;
            width: 100%;
            max-width: 300px;
+           box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
        }
 
        div h1,p{
@@ -56,6 +67,8 @@
 
        div h1{
            font-size: 2rem;
+           color: rgb(255, 56, 56);
+           font-family: 'Courgette', cursive;
        }
 
        div p{
@@ -69,19 +82,20 @@
        }
 
        button{
-           border:2px solid rgb(28, 68, 121);
-           background-color: transparent;
-           color: rgb(28, 68, 121);
-           padding: 3px 20px;
-           font-size: 1.6rem;
-           border-radius: 10px;
-           cursor: pointer;
-           margin: 10px auto;
+    padding: 5px 15px;
+    margin: 10px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 56, 56);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    font-size: 1.6rem;
        }
 
 
      .hire  i{
-           background-color: rgb(255, 0, 0);
+           background-color: rgb(255, 56, 56);
            color: white;
            width: 20px;
            height: 20px;
@@ -96,7 +110,7 @@
        }
 
        .add{
-           background-color: black;
+           background-color: rgba(34, 1, 58, 0.8);
            max-width: 300px;
            margin:20px auto;
            border-radius: 10px;
@@ -159,12 +173,20 @@
            place-items: end;
            margin-right: 20px;
            cursor: pointer;
+           color: rgb(255, 56, 56);
        }
 
        small{
            color: red;
            font-size: 14px;
           
+       }
+
+       .modal-body{
+        background-image:linear-gradient(rgba(34, 1, 58, 0.8),rgba(34, 1, 58, 0.8)),url("https://www.kcyatlaw.ca/wp-content/uploads/2017/09/Employee-Background-Checks-Canada.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
        }
 
        @media(max-width:965px){
@@ -177,7 +199,7 @@
     </style>
 </head>
 <body>
-    <h1 class="bg-danger py-2 text-white"> Hired Employees</h1>
+    <h1 style="background-color:rgba(255, 56, 56,0.8);" class=" py-2 text-white"> Hired Employees&#128100;</h1>
    <small>*functionality of this page will reset when you refresh your page</small> <i class="fas fa-sign-out-alt" onclick="logout()">Log out</i>
     <section class="hire">
     </section>
@@ -202,8 +224,8 @@
            <input type="email" name="" id="emmail" class="form-control" placeholder="Email">
            <input type="number" name="" id="emnum" minlength="10" class="form-control" placeholder="Phone">
            <textarea placeholder="enter your address..." name="" id="emaddress" cols="30" rows="5" class="form-control"></textarea>
-           <button type="button" class="btn-outline-success" onclick="addemployee()">Add Employee</button>
-           <button type="reset" class="btn-outline-danger">Reset</button>
+           <button type="button" class="bg-success" onclick="addemployee()">Add Employee</button>
+           <button type="reset" class="bg-danger">Reset</button>
           </form>
         </div>
         <div class="modal-footer bg-primary">
@@ -228,7 +250,7 @@
            <input type="email" name="" id="editmail" class="form-control" placeholder="Email">
            <input type="number" name="" id="editnum" minlength="10" class="form-control" placeholder="Phone">
            <textarea placeholder="enter your address..." name="" id="editaddress" cols="30" rows="5" class="form-control"></textarea>
-           <button type="button" class="btn-outline-success" onclick="editemployee()">Save</button>
+           <button type="button" class="bg-success" onclick="editemployee()">Save</button>
           </form>
         </div>
         <div class="modal-footer bg-success">
@@ -244,7 +266,7 @@
         hire.innerHTML=gtdata;
         let hirebtn=document.querySelectorAll(".hirebtn");
         hirebtn.forEach(function(params) {
-        params.textContent="Edit Profile";
+        params.innerHTML="Edit Profile&#128394;";
         params.setAttribute("data-toggle","modal");
         params.setAttribute("data-target","#editmodal");
         })
@@ -292,14 +314,14 @@
 
         function newele() {
             if (emname.style.border=="1px solid green"&&emmail.style.border=="1px solid green") {
-                let ele=`<div>
+                let ele=`<div style="background-color:rgba(34, 1, 58, 0.8)">
             <h2></h2>
             <h1>${emname.value}</h1>
             <p>${emmail.value}</p>
             <p>${emnum.value}</p>
             <p>${emaddress.value}</p>
             <i class="fas fa-times" onclick="cutitm(this)"></i>
-            <button class="hirebtn" onclick="hireemp(this)" data-toggle="modal" data-target="#editmodal">Edit Profile</button>
+            <button class="hirebtn" onclick="hireemp(this)" data-toggle="modal" data-target="#editmodal">Edit Profile&#128394;</button>
         </div>`
 
         hire.insertAdjacentHTML("beforeend",ele);

@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Hire Employees</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Bakbak+One&family=Courgette&family=DM+Serif+Display&family=Libre+Baskerville:wght@700&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@200&family=Outfit:wght@200;400&family=PT+Serif:wght@700&family=Playfair+Display+SC&family=Roboto+Slab:wght@400;500&family=Shippori+Antique+B1&family=Yanone+Kaffeesatz:wght@300&family=Yellowtail&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Bakbak+One&family=Courgette&family=DM+Serif+Display&family=Libre+Baskerville:wght@700&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@200&family=Outfit:wght@200;400&family=PT+Serif:wght@700&family=Playfair+Display+SC&family=Roboto+Slab:wght@400;500&family=Shippori+Antique+B1&family=Ubuntu+Mono&family=Yanone+Kaffeesatz:wght@300&family=Yellowtail&display=swap');
      *{
     padding: 0;
     margin: 0;
@@ -15,16 +19,25 @@
 
     html{
         font-size: 62.5%;
+         font-family: 'Ubuntu Mono', monospace;
     }
 
     body{
         text-align: center;
+        background-image:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url("https://th.bing.com/th/id/R.afb283121e0140394106154110373424?rik=3EClL54%2bo0yEgw&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-10%2fVector-Line-Background-Wallpapers-29369.jpg&ehk=Y1%2fXDS84SUxzG5o79ZLetpy%2bhKB1adbE2NtvcpwQEGI%3d&risl=&pid=ImgRaw&r=0");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+
+        
     }
 
     body h1{
      text-align: center;
      margin: 10px;
      font-size: 3rem;
+     color: rgb(255, 56, 56);
     }
 
     .hire{
@@ -34,11 +47,13 @@
     }
 
        div{
-           background-color: black;
-           border: 2px solid white;
-           border-radius: 10px;
+           background-position: center;
+           background-size: cover;
+           background-repeat: no-repeat;
            text-align: center;
            padding: 10px;
+           margin: 0px 10px;
+           box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
        }
 
        div h1,p{
@@ -48,6 +63,8 @@
 
        div h1{
            font-size: 2rem;
+           color: rgb(255, 56, 56);
+           font-family: 'Courgette', cursive;
        }
 
        div p{
@@ -61,23 +78,24 @@
        }
 
        button{
-           border:2px solid rgb(28, 68, 121);
-           background-color: transparent;
-           color: rgb(28, 68, 121);
-           padding: 3px 20px;
-           font-size: 1.6rem;
-           border-radius: 10px;
-           cursor: pointer;
-           margin: 10px auto;
+    padding: 5px 15px;
+    margin: 10px 0px;
+    border-radius: 20px;
+    background-color: rgb(255, 56, 56);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    font-size: 1.6rem;
        }
 
     </style>
 </head>
 <body>
-    <h1 class="bg-danger text-white py-2">Employees List</h1>
+    <h1 style="background-color: rgba(255, 56, 56,0.8);" class="text-white py-2">Employees List&#128196;</h1>
     <section class="hire">
     </section>
-    <a href="hired.html"><button>Hired Employees</button></a>
+    <a href="hired.html"><button>Hired Employees&#128100;</button></a>
     <script>
         let hire=document.querySelector(".hire");
         fetch("https://randomuser.me/api//?results=8").then(function(params) {
@@ -85,13 +103,13 @@
         }).then(function(params) {
             console.log(params.results);
          let details=params.results.map(function(params) {
-             return `<div>
+             return `<div style="background-image:linear-gradient(rgba(34, 1, 58, 0.8),rgba(34, 1, 58, 0.8)),url(${params.picture.large})">
             <img src="${params.picture.medium}" alt="">
             <h1>${params.name.title} ${params.name.first} ${params.name.last}</h1>
             <p>${params.email}</p>
             <p>${params.cell}</p>
             <p>${params.location.city}</p>
-            <button class="hirebtn" onclick="hireemp(this)">Hire</button>
+            <button class="hirebtn" onclick="hireemp(this)">Hire&#128587;</button>
         </div>`
          }).join("");
            hire.insertAdjacentHTML("afterbegin",details);

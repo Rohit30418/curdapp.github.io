@@ -3,38 +3,49 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body{
-   background-color: #181818;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url("https://th.bing.com/th/id/R.afb283121e0140394106154110373424?rik=3EClL54%2bo0yEgw&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-10%2fVector-Line-Background-Wallpapers-29369.jpg&ehk=Y1%2fXDS84SUxzG5o79ZLetpy%2bhKB1adbE2NtvcpwQEGI%3d&risl=&pid=ImgRaw&r=0");
     background-position: center;
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100vh;
+}
+
+
+
+.formsection{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0px 20px;
+    padding: 0px 0px;
+    min-height: 100vh;
 }
 
-.formsection{
-    background-color: white;
+.inpart{
+    background-color:transparent;
     width: 100%;
     max-width: 400px;
     padding: 10px;
-    border-radius: 10px;
     margin:20px auto;
-    box-shadow:inset -2px -2px 5px  rgba(255, 255, 255, 0.9), 2px 2px 5px inset rgba(0, 0, 0, 0.9);
+    background-image:linear-gradient(rgba(34, 1, 58, 0.8),rgba(34, 1, 58, 0.8)),url("https://www.kcyatlaw.ca/wp-content/uploads/2017/09/Employee-Background-Checks-Canada.jpg");
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .formsection form label{
    display: block;
    margin-bottom: 5px;
+   color: white;
 }
 
 form input{
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
+    border-radius: 20px;
+    border: none;
 }
 
 form .forgot{
@@ -51,7 +62,7 @@ form button{
 form button{
     background-color: rgb(12, 12, 12);
     color: white;
-    border-radius:5px;
+    border-radius:20px !important;
     border: none;
 }
 
@@ -65,16 +76,16 @@ form .submit{
 
 
 .signupdiv{
-    border-radius: 10px;
     margin: 20px;
     width: 400px;
-    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
     position: relative;
-    border: 1px solid rgb(160,160,160);
-    border-radius: 10px;
     padding: 10px;
     margin:20px auto;
-    box-shadow:inset -2px -2px 5px  rgba(255, 255, 255, 0.9), 2px 2px 5px inset rgba(0, 0, 0, 0.9);
+    background-image:linear-gradient(rgba(34, 1, 58, 0.8),rgba(34, 1, 58, 0.8)),url("https://urbanemploy.com/sites/all/themes/responsive_blog/images/slide-image-2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -84,6 +95,8 @@ form .submit{
    margin: 10px 0px;
    font-size: 15px;
    outline: none;
+   border-radius: 20px;
+    border: none;
 }
 
 .signupdiv input:focus{
@@ -93,12 +106,12 @@ form .submit{
 .signupdiv button{
     padding: 5px 15px;
     margin: 10px 0px;
-    border-radius: 5px;
-    background-color: rgb(131, 131, 131);
-    color: white;
+    border-radius: 20px;
+    background-color: rgb(255, 56, 56);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     overflow: hidden;
-    position: relative;
+    border: none;
 }
 
 

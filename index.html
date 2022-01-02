@@ -10,14 +10,14 @@
 </head>
 <body class="container">
     <section class="formsection">
-            <div class="left">
-            <strong>Welcome back</strong>
-            <h2>Login to your account</h2>
+            <div class="inpart">
+            <strong class="text-white">Welcome back</strong>&#128587;
+            <h3 class="text-white">Login to your account</h3>
             <form action="">
-                <label for="mail">Email</label>
+                <label for="mail">Email&#9993;</label>
                 <input type="email" name="" id="mail" required>
 
-                <label for="password">Password</label>
+                <label for="password">Password&#128273;</label>
                 <input type="password" name="" id="password">
 
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -25,51 +25,51 @@
                         <input type="radio" name="" id="radio">
                         <label for="radio">Remember me</label>
                     </div>
-                    <a href="#">Forgot password?</a>
+                    <a href="#">Forgot password?&#129300;</a>
                 </div>
 
-                <button class="submit" type="button" onclick="validate()">Login now</button>
+                <button class="submit" type="button" onclick="validate()">Login now&#128072;</button>
                 <button>Or sign-in with google</button>
             </form>
 
             <small>Dont have an account?<a href="#">Join free today</a></small>
         </div>
 
+        <div class="signupdiv">
 
+            <h3 class=" text-white">Sign up</h3>
+                <div>
+                    <input type="text" name="" id="rgname"placeholder="Enter your full name"><br>
+                    <small></small>
+                </div>
+    
+    
+                <div >
+                    <input type="email" name="" id="rgmail"placeholder="Enter your Email-Address"><br>
+                    <small></small>
+                </div>
+               
+                    <div>
+                        <input type="password" name="" id="rgpass"placeholder="password">
+                        <small></small>
+                    </div>
+    
+                    <div>
+                        <input type="password" name="" id="rgcpass"placeholder="Confirm Password">
+                        <small></small>
+                    </div>
+    
+                    <div>
+                        <input type="text"placeholder="Enter your address"id="rgaddress">
+                        <small></small>
+                    </div>
+    
+                    <button onclick="signup()">Register</button>
+                
+        </div>
     </section>
 
-    <div class="signupdiv">
-
-        <h1 class="h2">Sign up</h1>
-            <div>
-                <input type="text" name="" id="rgname"placeholder="Enter your full name"><br>
-                <small></small>
-            </div>
-
-
-            <div >
-                <input type="email" name="" id="rgmail"placeholder="Enter your Email-Address"><br>
-                <small></small>
-            </div>
-           
-                <div>
-                    <input type="password" name="" id="rgpass"placeholder="password">
-                    <small></small>
-                </div>
-
-                <div>
-                    <input type="password" name="" id="rgcpass"placeholder="Confirm Password">
-                    <small></small>
-                </div>
-
-                <div>
-                    <input type="text"placeholder="Enter your address"id="rgaddress">
-                    <small></small>
-                </div>
-
-                <button onclick="signup()">Register</button>
-            
-    </div>
+   
     <script src="script.js"></script>
 </body>
 </html>
